@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import cmd, sys
 
-class Console(cmd.Cmd):
+class HBNBcommand(cmd.Cmd):
     intro = None
     prompt = '(hbnb) '
     file = None
@@ -25,4 +25,4 @@ class Console(cmd.Cmd):
             return self.onecmd('\n')
 
 if __name__ == '__main__':
-    Console().cmdloop()
+    HBNBcommand().cmdloop()
