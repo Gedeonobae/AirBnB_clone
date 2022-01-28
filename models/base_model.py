@@ -5,14 +5,25 @@ class BaseModel:
     """
     defines all common attributes/methods for other classes
     """
-    def __init__(self):
-    """Initialize the uuid
-    assign with the current datetime when an instance is created
-    assign with the current datetime when an instance is updated
-    """
-    self.id = str(uuid.uuid4())
-    self.created_at = datetime.now()
-    self.updated_at = datetime.now()
+    def __init__(self, *args, **kwargs):
+        """Constructor of a class"""
+        if kwargs is not None:
+            my_dict = self.__dict__.copy()
+            if 'created_at' in my_dict:
+                time = datetime.now().isoformat()
+                my_dict['created_at'] = datetime.fromisoformat(time)
+            if 'updated_at' in my_dict:
+                time = datetime.now().isoformat()
+                my_dict['updated_at'] = datetime.fromisoformat(time)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            storage.new(self)
+        """public instance attributes"""
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __str__(self):
         """prints [<class name>] (<self.id>) <self.__dict__>"""
