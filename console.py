@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-import cmd, sys
+import cmd
+import sys
+
 
 class HBNBcommand(cmd.Cmd):
+    """Entry point of the command interpreter"""
     intro = None
     prompt = '(hbnb) '
     file = None
@@ -23,6 +26,7 @@ class HBNBcommand(cmd.Cmd):
         if self.lastcmd:
             self.lastcmd = ""
             return self.onecmd('\n')
+
 
 if __name__ == '__main__':
     HBNBcommand().cmdloop()
