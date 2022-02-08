@@ -260,7 +260,8 @@ m', 'first_name': 'Holberton', 'updated_at': datetime.datetime(2019, 2, 17, 21,
 21, 54, 39, 234382)}
 (hbnb) 
 
-```
+``
+`
 ## Testing :straight_ruler:
 
 Unittests for the HolbertonBnB project are defined in the [tests](./tests) 
